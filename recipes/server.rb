@@ -85,3 +85,5 @@ bash "assign-postgres-password" do
   not_if "ls #{node['postgresql']['config']['data_directory']}/recovery.conf"
   only_if { node['postgresql']['assign_postgres_password'] }
 end
+
+include_recipe "postgresql::config_ptune"
